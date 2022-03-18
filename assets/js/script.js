@@ -16,6 +16,15 @@ function getRecipeInfo() {
         return response.json();
     }).then(function(data) {
         console.log(data)
+        let recipeName = data.results[0].title
+        console.log(recipeName)
+        for(let i = 0; i < data.results.length; i++) {
+            let recipeCard = document.createElement("div");
+            let recipeName = data.results[i].title
+            console.log(recipeName)
+
+
+        }
     })
 }
 
