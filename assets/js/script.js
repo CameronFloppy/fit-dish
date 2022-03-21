@@ -6,6 +6,7 @@ let maxCarbs = 90
 let minCarbs = 0
 let maxFat = 100
 let minFat = 0
+let recipeListEl = document.querySelector(".recipes");
 
 
 
@@ -16,13 +17,14 @@ function getRecipeInfo() {
         return response.json();
     }).then(function(data) {
         console.log(data)
-
-        
         for(let i = 0; i < data.results.length; i++) {
             let recipeCard = document.createElement("div");
             let recipeName = data.results[i].title
             console.log(recipeName)
-
+            let cardTitle = document.createElement("h2");
+            cardTitle.textContent = recipeName;
+            recipeCard.append(cardTitle);
+            recipeListEl.append(recipeCard);
 
         }
     })
