@@ -82,15 +82,57 @@ header{
 .name{
     border-top: 3px solid black;
     border-right: 3px solid black;
+    border-left: 3px solid black;
 }
 
 #dayNameSun{
     border-bottom: 3px solid black
 }
 
+.breakfast{
+    border-right: 3px solid black;
+    border-top: 3px solid black
+}
+
+#breakfastSun{
+    border-bottom: 3px solid black;
+}
+
+.lunch{
+    border-right: 3px solid black;
+    border-top: 3px solid black
+}
+
+
+#lunchSun{
+    border-bottom: 3px solid black;
+}
+
+.dinner{
+    border-right: 3px solid black;
+    border-top: 3px solid black
+}
+
+#dinnerSun{
+    border-bottom: 3px solid black;
+}
+
+.top-title{
+    text-align: center;
+}
+
+.title-row{
+    height: 40px
+}
+
+h3{
+    color: red;
+    font-size: 10px;
+}
 
 .card-content {
     font-size: 20px;
     padding: 5px;
     text-align: center;
 }
+
