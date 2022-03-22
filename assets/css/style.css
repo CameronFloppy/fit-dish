@@ -2,6 +2,7 @@ header{
     background-color: red;
 }
 
+
 #macro-numbers{
     display: flex;
     flex-direction: column;
@@ -71,6 +72,10 @@ header{
     transform: translate(10px, 1px);
 .column{
     height: 100px
+  }
+.container{
+    size: 100px;
+
 }
 
 .name{
@@ -83,3 +88,8 @@ header{
 }
 
 
+.card-content {
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
