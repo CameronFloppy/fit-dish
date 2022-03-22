@@ -12,11 +12,13 @@
 
 
 
-    <header>
-        <h1>FitDish</h1>
+    <header class="hero is-danger">
+        <div class="hero-body">
+            <h1>FitDish</h1>
+        </div>
     </header>
   
-    <div class="form">
+    <!-- <div class="form columns">
         <h3>Macros</h3>
 
     <form>
@@ -24,14 +26,12 @@
         <input type="text" placeholder="Min" name="name" id="name" class="form-input">
         <input type="text" placeholder="Max" name="name" id="name" class="form-input">
 
-        <label for=""
+        <label for=""></label>
     </form>
 
+    </div> -->
 
-
-    </div>
-
-    <section class="columns">
+    <!-- <section class="columns">
         <div class="column">
 
         </div>
@@ -39,24 +39,32 @@
         <div class="column">
 
         </div>
-    </section>
+    </section> -->
 
-    <section class="recipe-list">
-        <div class="recipes">
-            
+    <section class="container section columns">
+        <div class="form column">
+            <h3>Macros</h3>
+    
+        <form>
+            <label for="min">Calorie Range</label>
+            <input type="text" placeholder="Min" name="name" id="name" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="name" class="form-input">
+    
+            <label for=""></label>
+        </form>
+    
         </div>
-
-        <div class="column">
-            <div class="columns" id="prev-btn">
+        <div class="recipes buttons column">
+            <div class="button" id="prev-btn">
                 <button>Previous</button>
             </div>
-            <div class="columns" id="next-btn">
+            <div class="button" id="next-btn">
                 <button>Next</button>
             </div>
         </div>
     </section>
 
-    <section class="container">
+    <section class="container section calendar">
         <div class="columns" id="monday">
             <div class="column name" id="dayNameMon">
                 Mon
