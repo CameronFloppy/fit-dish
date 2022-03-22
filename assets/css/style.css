@@ -21,3 +21,11 @@ header{
     padding: 5px;
     text-align: center;
 }
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero {
+    padding: 5pxpx;
+}
