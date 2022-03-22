@@ -35,7 +35,7 @@ header{
 
   }
 
-.generate-recipe{
+/* .generate-recipe{
      
    
         color: rgb(255, 255, 255); font-size: 20px; 
@@ -62,15 +62,15 @@ header{
     -o-transform: translate(200px, 1px);
     -ms-transform: translate(200px, 1px);
     transform: translate(400rpx, 1px);
-}
+} */
 
-.macros {
+/* .macros {
     -moz-transform: translate(200px, 1px);
     -webkit-transform: translate(200px, 1px);
     -o-transform: translate(200px, 1px);
     -ms-transform: translate(200px, 1px);
     transform: translate(10px, 1px);
-}
+} */
 .column{
     height: 100px
   }
