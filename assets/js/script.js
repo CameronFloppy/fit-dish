@@ -12,11 +12,13 @@ let offset = 0;
 
 
 
-function getRecipeInfo(input) {
+function getRecipeInfo() {
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
 
     let cardDivEl = document.createElement("div")
     cardDivEl.setAttribute("class", "recipe-cards")
+
+    
 
     fetch(apiUrl)
         .then(function(response) {
@@ -40,7 +42,7 @@ function getRecipeInfo(input) {
                 let recipeCard = document.createElement("div");
                 recipeCard.setAttribute("class", "card recipe-card");
                 let recipeName = "Placeholder " + i
-                console.log(recipeName)
+                // console.log(recipeName)
                 let cardTitle = document.createElement("h2");
                 cardTitle.setAttribute("class", "card-content");
                 cardTitle.textContent = recipeName;
@@ -87,6 +89,7 @@ $("#prev-btn").on("click", function(){
     if (offset >= 10) {
         offset -= 10
         console.log(offset)
+        clearRecipes()
         getRecipeInfo(offset)
     }
 })
@@ -94,5 +97,11 @@ $("#prev-btn").on("click", function(){
 $("#next-btn").on("click", function() {
     offset += 10
     console.log(offset)
+    clearRecipes()
     getRecipeInfo(offset);
 })
+
+function clearRecipes() {
+    let recipeList = document.querySelector(".recipe-cards");
+    recipeList.remove();
+}

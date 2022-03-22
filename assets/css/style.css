@@ -2,8 +2,8 @@ header{
     background-color: red;
 }
 
-.column{
-    
+.container{
+    size: 100px;
 }
 
 .name{
