@@ -70,6 +70,7 @@ header{
     -o-transform: translate(200px, 1px);
     -ms-transform: translate(200px, 1px);
     transform: translate(10px, 1px);
+}
 .column{
     height: 100px
   }

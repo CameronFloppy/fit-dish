@@ -49,16 +49,16 @@
 
     <div class="generate-recipe">
         <label for="generate-recipe">Recipe Generator</label>
-    </div>
+    </div> -->
 
 
 
 
-<form id="macro-numbers">
+<!-- <form id="macro-numbers">
     
     <div class="macros">
     <strong>Macros:</strong>
-   <img src="./assets/images/macros-picture.png" alt=""/>
+    <img src="./assets/images/macros-picture.png" alt=""/>
     </div>
 
     <div class="form-row">
@@ -90,24 +90,59 @@
         Generate
     </button>
 
-</form>
+</form> -->
     
 
-        <div class="column">
+<div class="column">
 
+</div>
 
-        
-    </section>
 
     <section class="recipe-list">
         <div class="recipes">
             
         </div>
-    </section> -->
+    </section>
 
     <section class="container section columns">
-        </div>
-        <div class="recipes buttons column">
+        <form class="column is-6" id="macro-numbers">
+    
+            <div class="macros">
+            <strong>Macros:</strong>
+            <img src="./assets/images/macros-picture.png" alt=""/>
+            </div>
+        
+            <div class="form-row">
+                <img src="./assets/images/protein-picture.png" alt=""/>
+                <label for="protein-range">Protein Range</label>
+                <input type="range" form="macro-numbers" placeholder="Min"  id="protein-range" class="form-input">
+            </div>
+        
+            <div class="form-row">
+                <img src="./assets/images/carbs-picture.png" alt=""/>
+                <label for="carbs-range">Carbohydrates Range</label>
+                <input type="range" form="macro-numbers" placeholder="Min"  id="protein-range" class="form-input">    
+            </div>
+        
+            <div class="form-row">
+                <img src="./assets/images/fats-picture.png" alt=""/>
+                <label for="fat-range"> Fat Range</label>
+                <input type="range" form="macro-numbers" placeholder="Min"  id="fat-range" class="form-input"> 
+            </div>
+        
+            <div class="form-row">
+                <img src="./assets/images/calories-photo.png" alt=""/>
+                <label for="calorie-range"> Calories Range</label>
+                <input type="range" form="macro-numbers" placeholder="Min"  id="calorie-range" class="form-input">
+            </div>
+        
+            
+            <button type="submit" class="button" form="macro-numbers">
+                Generate
+            </button>
+        
+        </form>
+        <div class="recipes buttons column is-6">
             <div class="button" id="prev-btn">
                 <button>Previous</button>
             </div>
