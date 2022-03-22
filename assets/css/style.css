@@ -52,5 +52,6 @@ header{
 }
 
 h3{
-    color: red
+    color: red;
+    font-size: 10px;
 }
