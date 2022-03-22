@@ -16,7 +16,7 @@
         <h1>FitDish</h1>
     </header>
   
-    <div class="form">
+    <!-- <div class="form columns">
         <h3>Macros</h3>
 
     <form>
@@ -27,9 +27,9 @@
         <label for=""></label>
     </form>
 
-    </div>
+    </div> -->
 
-    <section class="columns">
+    <!-- <section class="columns">
         <div class="column">
 
         </div>
@@ -37,20 +37,32 @@
         <div class="column">
 
         </div>
-    </section>
+    </section> -->
 
-    <section class="recipe-list">
-        <div class="recipes">
-            
+    <section class="recipe-list columns">
+        <div class="form columns">
+            <h3>Macros</h3>
+    
+        <form>
+            <label for="min">Calorie Range</label>
+            <input type="text" placeholder="Min" name="name" id="name" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="name" class="form-input">
+    
+            <label for=""></label>
+        </form>
+    
         </div>
-
-        <div class="column">
-            <div class="columns" id="prev-btn">
+        <div class="recipes buttons are-small column">
+            <div class="button is-outlined" id="prev-btn">
                 <button>Previous</button>
             </div>
-            <div class="columns" id="next-btn">
+            <div class="button is-outlined" id="next-btn">
                 <button>Next</button>
             </div>
+        </div>
+
+        <div class="column">
+            
         </div>
     </section>
 

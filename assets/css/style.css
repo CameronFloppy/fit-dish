@@ -16,3 +16,10 @@ header{
 }
 
 
+.card-content {
+    font-size: 10px;
+}
+
+.card {
+    padding: 1px;
+}
