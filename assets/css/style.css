@@ -3,7 +3,7 @@ header{
 }
 
 .column{
-    height: 100px
+    
 }
 
 .name{
@@ -17,9 +17,7 @@ header{
 
 
 .card-content {
-    font-size: 10px;
-}
-
-.card {
-    padding: 1px;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
 }
