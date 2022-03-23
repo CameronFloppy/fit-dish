@@ -92,14 +92,57 @@
 </form> -->
     
 
-<div class="column">
+    <header class="hero is-danger">
+        <div class="hero-body">
+            <h1>FitDish</h1>
+        </div>
+    </header>
 
-</div>
 
+    
+    
+    <section class="columns">
 
-    <section class="container section columns">
-        <div class="column">
-            <form id="macro-numbers">
+        <div class="form-div column">
+            <h3>Macros</h3>
+        <form>
+            <label for="min">Calorie Range</label>
+            <input type="text" placeholder="Min" name="name" id="minCal" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxCal" class="form-input">
+            </br>
+            <label for="min">Protein Range</label>
+            <input type="text" placeholder="Min" name="name" id="minProt" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxProt" class="form-input">
+            </br>
+            <label for="min">Carbohydrates Range</label>
+            <input type="text" placeholder="Min" name="name" id="minCarb" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxCarb" class="form-input">
+            </br>
+            <label for="min">Fat Range</label>
+            <input type="text" placeholder="Min" name="name" id="minFat" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxFat" class="form-input">
+            </br>
+            <button type="submit" class="button" form="macro-numbers">
+                Generate
+            </button>
+        </form>
+        </div>
+
+        <div class="generate-div recipes column">
+            <div class="generate-recipe">
+                <h3>Recipe Generator</h3>
+            </div>
+            <div class="button" id="prev-btn">
+                <button>Previous</button>
+            </div>
+            <div class="button" id="next-btn">
+                <button>Next</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container">
         
                 <div class="macros">
                 <strong>Macros:</strong>
@@ -156,77 +199,77 @@
             <div class="column name is-2" id="dayNameMon">
                 Mon
             </div>
-            <div class="column breakfast" id="brekfastMon">
+            <div class="column breakfast dropZone" id="brekfastMon">
             </div>
-            <div class="column lunch" id="lunchMon">
+            <div class="column lunch dropZone" id="lunchMon">
             </div>
-            <div class="column dinner" id="dinnerMon">
+            <div class="column dinner dropZone" id="dinnerMon">
             </div>
         </div>
         <div class="columns" id="tuesday">
             <div class="column name is-2" id="dayNameTue">
                 Tue
             </div>
-            <div class="column breakfast" id="brekfastTue">
+            <div class="column breakfast dropZone" id="brekfastTue">
             </div>
-            <div class="column lunch" id="lunchTue">
+            <div class="column lunch dropZone" id="lunchTue">
             </div>
-            <div class="column dinner" id="dinnerTue">
+            <div class="column dinner dropZone" id="dinnerTue">
             </div>
         </div>
         <div class="columns" id="wednesday">
             <div class="column name is-2" id="dayNameWed">
                 Wed
             </div>
-            <div class="column breakfast" id="breakfastWed">
+            <div class="column breakfast dropZone" id="breakfastWed">
             </div>
-            <div class="column lunch" id="lunchWed">
+            <div class="column lunch dropZone" id="lunchWed">
             </div>
-            <div class="column dinner" id="dinnerWed">
+            <div class="column dinner dropZone" id="dinnerWed">
             </div>
         </div>
         <div class="columns" id="thursday">
             <div class="column name is-2" id="dayNameThu">
                 Thu
             </div>
-            <div class="column breakfast" id="breakfastThu">
+            <div class="column breakfast dropZone" id="breakfastThu">
             </div>
-            <div class="column lunch" id="lunchThu">
+            <div class="column lunch dropZone" id="lunchThu">
             </div>
-            <div class="column dinner" id="dinnerThu">
+            <div class="column dinner dropZone" id="dinnerThu">
             </div>
         </div>
         <div class="columns" id="friday">
             <div class="column name is-2" id="dayNameFri">
                 Fri
             </div>
-            <div class="column breakfast" id="breakfastFri">
+            <div class="column breakfast dropZone" id="breakfastFri">
             </div>
-            <div class="column lunch" id="lunchFri">
+            <div class="column lunch dropZone" id="lunchFri">
             </div>
-            <div class="column dinner" id="dinnerFri">
+            <div class="column dinner dropZone" id="dinnerFri">
             </div>
         </div>
         <div class="columns" id="saturday">
             <div class="column name is-2" id="dayNameSat">
                 Sat
             </div>
-            <div class="column breakfast" id="breakfastSat">
+            <div class="column breakfast dropZone" id="breakfastSat">
             </div>
-            <div class="column lunch" id="lunchSat">
+            <div class="column lunch dropZone" id="lunchSat">
             </div>
-            <div class="column dinner" id="dinnerSat">
+            <div class="column dinner dropZone" id="dinnerSat">
             </div>
         </div>
         <div class="columns" id="sunday">
             <div class="column name is-2" id="dayNameSun">
                 Sun
             </div>
-            <div class="column breakfast" id="breakfastSun">
+            <div class="column breakfast dropZone" id="breakfastSun">
             </div>
-            <div class="column lunch" id="lunchSun">
+            <div class="column lunch dropZone" id="lunchSun">
             </div>
-            <div class="column dinner" id="dinnerSun">
+            <div class="column dinner dropZone" id="dinnerSun">
             </div>
         </div>
 
