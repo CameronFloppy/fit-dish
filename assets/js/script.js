@@ -6,7 +6,7 @@ let maxCarbs = 90
 let minCarbs = 0
 let maxFat = 100
 let minFat = 0
-let recipeListEl = $(".recipes")
+let recipeListEl = document.querySelector(".recipes")
 let offset = 0;
 
 
@@ -37,7 +37,7 @@ function getRecipeInfo() {
                     cardTitle.setAttribute("class", "card-content");
                     cardTitle.textContent = recipeName;
                     recipeCard.append(cardTitle);
-                    recipeListEl.append(recipeCard);
+                    cardDivEl.append(recipeCard);
                 }
                 })
         } else {
@@ -55,26 +55,6 @@ function getRecipeInfo() {
     recipeListEl.append(cardDivEl)
 }
 
-// $(".recipe-cards").sortable({
-//     connectWith: $(".calendar"),
-//     scroll: false,
-//     tolerance: "pointer",
-//     helper: "clone",
-//     activate: function(event) {
-//         $(this).addClass("dropover");
-//         $(".bottom-trash").addClass("bottom-trash-drag");
-//     },
-//     deactivate: function(event) {
-//         $(this).removeClass("dropover");
-//         $(".bottom-trash").removeClass("bottom-trash-drag");
-//     },
-//     over: function(event) {
-//         $(event.target).addClass("dropover-active");
-//     },
-//     out: function(event) {
-//         $(event.target).removeClass("dropover-active");
-//     }
-// })
 getRecipeInfo();
 
 $(".recipe-cards").sortable({
@@ -84,8 +64,11 @@ $(".recipe-cards").sortable({
     helper: "clone",
 });
 
-$(".calendar").sortable({
-    connectWith: $(".recipe-cards")
+$(".dropZone").droppable({
+    connectWith: $(".recipe-cards"),
+    drop: function() {
+        this.textContent = "drop";
+    }
 })
 
 $("#prev-btn").on("click", function(){
