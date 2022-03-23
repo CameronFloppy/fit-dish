@@ -6,7 +6,7 @@ let maxCarbs = 90
 let minCarbs = 0
 let maxFat = 100
 let minFat = 0
-
+let recipeListEl = $(".recipes")
 let offset = 0;
 
 
@@ -14,7 +14,7 @@ let offset = 0;
 
 
 
-function getRecipeInfo();
+function getRecipeInfo() {
 
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
 

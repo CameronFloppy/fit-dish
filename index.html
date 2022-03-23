@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
-    <style>
+    <!-- <style>
         .vl {
-          border-left: 6px solid green;
-          height: 500px;
-          position: absolute;
-          left: 50%;
-          margin-left: -3px;
-          top: 0;
+            border-left: 6px solid green;
+            height: 500px;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 0;
         }
-        </style>
-        <div class="vl"></div>
+    </style>
+    <div class="vl"></div> -->
 </head>
 
 <body>
@@ -30,111 +30,45 @@
             <h1>FitDish</h1>
         </div>
     </header>
-  
-    <!-- <div class="form columns">
-        <h3>Macros</h3>
 
-    <form>
-        <label for="min">Calorie Range</label>
-        <input type="text" placeholder="Min" name="name" id="name" class="form-input">
-        <input type="text" placeholder="Max" name="name" id="name" class="form-input">
-
-        <label for=""></label>
-    </form>
-
-    </div> -->
-
-    <!-- <section class="columns">
-        <div class="column">
-
-    <div class="generate-recipe">
-        <label for="generate-recipe">Recipe Generator</label>
-    </div> -->
-
-
-
-<!-- <form id="macro-numbers">
-    
-    <div class="macros">
-    <strong>Macros:</strong>
-    <img src="./assets/images/macros-picture.png" alt=""/>
-    </div>
-
-    <div class="form-row">
-        <img src="./assets/images/protein-picture.png" alt=""/>
-        <label for="protein-range">Protein Range</label>
-        <input type="range" form="macro-numbers" placeholder="Min"  id="protein-range" class="form-input">
-    </div>
-
-    <div class="form-row">
-        <img src="./assets/images/carbs-picture.png" alt=""/>
-        <label for="carbs-range">Carbohydrates Range</label>
-        <input type="range" form="macro-numbers" placeholder="Min"  id="protein-range" class="form-input">    
-    </div>
-
-    <div class="form-row">
-        <img src="./assets/images/fats-picture.png" alt=""/>
-        <label for="fat-range"> Fat Range</label>
-        <input type="range" form="macro-numbers" placeholder="Min"  id="fat-range" class="form-input"> 
-    </div>
-
-    <div class="form-row">
-        <img src="./assets/images/calories-photo.png" alt=""/>
-        <label for="calorie-range"> Calories Range</label>
-        <input type="range" form="macro-numbers" placeholder="Min"  id="calorie-range" class="form-input">
-    </div>
-
-    
-    <button type="submit" class="button" form="macro-numbers">
-        Generate
-    </button>
-
-</form> -->
-    
-
-<div class="column">
-
-</div>
-
-
-    <section class="container section columns">
+    <section class="container section columns is-multiline is-centered">
         <div class="column">
             <form id="macro-numbers">
-        
+
                 <div class="macros">
-                <strong>Macros:</strong>
-                <img src="./assets/images/macros-picture.png" alt=""/>
+                    <strong>Macros:</strong>
+                    <img src="./assets/images/macros-picture.png" alt="" />
                 </div>
-            
+
                 <div class="form-row">
-                    <img src="./assets/images/protein-picture.png" alt=""/>
+                    <img src="./assets/images/protein-picture.png" alt="" />
                     <label for="protein-range">Protein Range</label>
-                    <input type="range" form="macro-numbers" placeholder="Min"  id="protein-range" class="form-input">
+                    <input type="range" form="macro-numbers" placeholder="Min" id="protein-range" class="form-input">
                 </div>
-            
+
                 <div class="form-row">
-                    <img src="./assets/images/carbs-picture.png" alt=""/>
+                    <img src="./assets/images/carbs-picture.png" alt="" />
                     <label for="carbs-range">Carbohydrates Range</label>
-                    <input type="range" form="macro-numbers" placeholder="Min"  id="protein-range" class="form-input">    
+                    <input type="range" form="macro-numbers" placeholder="Min" id="protein-range" class="form-input">
                 </div>
-            
+
                 <div class="form-row">
-                    <img src="./assets/images/fats-picture.png" alt=""/>
+                    <img src="./assets/images/fats-picture.png" alt="" />
                     <label for="fat-range"> Fat Range</label>
-                    <input type="range" form="macro-numbers" placeholder="Min"  id="fat-range" class="form-input"> 
+                    <input type="range" form="macro-numbers" placeholder="Min" id="fat-range" class="form-input">
                 </div>
-            
+
                 <div class="form-row">
-                    <img src="./assets/images/calories-photo.png" alt=""/>
+                    <img src="./assets/images/calories-photo.png" alt="" />
                     <label for="calorie-range"> Calories Range</label>
-                    <input type="range" form="macro-numbers" placeholder="Min"  id="calorie-range" class="form-input">
+                    <input type="range" form="macro-numbers" placeholder="Min" id="calorie-range" class="form-input">
                 </div>
-            
-                
+
+
                 <button type="submit" class="button" form="macro-numbers">
                     Generate
                 </button>
-            
+
             </form>
         </div>
         <div class="recipes buttons column">
@@ -144,14 +78,16 @@
             <div class="button" id="next-btn">
                 <button>Next</button>
             </div>
-          <div class="columns title-row">
+        </div>
+
+    </section>
+    <section class="container section calendar">
+        <div class="columns title-row">
             <div class="column is-2"></div>
             <h3 class="column top-title">Breakfast</h3>
             <h3 class="column top-title">Lunch</h3>
             <h3 class="column top-title">Dinner</h3>
-          </div>
-
-    <section class="container section calendar">
+        </div>
         <div class="columns" id="monday">
             <div class="column name is-2" id="dayNameMon">
                 Mon
@@ -243,4 +179,3 @@
 
 
 </html>
-

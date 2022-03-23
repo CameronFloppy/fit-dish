@@ -71,12 +71,9 @@ header{
     -ms-transform: translate(200px, 1px);
     transform: translate(10px, 1px);
 } */
-.column{
-    height: 100px
-  }
+
 .container{
     size: 100px;
-
 }
 
 .name{
