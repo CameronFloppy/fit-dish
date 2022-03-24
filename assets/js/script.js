@@ -1,12 +1,13 @@
-let maxCal=1000
-let minCal = 0
-let maxProt = 100
-let minProt = 0
-let maxCarbs = 90
-let minCarbs = 0
-let maxFat = 100
-let minFat = 0
+let maxCalEl = $("#maxCal");
+let minCalEL = $("#minCal");
+let maxProtEl = $("#maxProt");
+let minProtEl = $("#minProt");
+let maxCarbsEl = $("#maxCarb");
+let minCarbsEl = $("#minCarb");
+let minFatEl = $("#minFat");
+let maxFatEl = $("#maxFat");
 
+let recipeListEl = document.querySelector(".recipes")
 let offset = 0;
 
 
@@ -14,8 +15,16 @@ let offset = 0;
 
 
 
-function getRecipeInfo();
-
+function getRecipeInfo() {
+    let maxCal = maxCalEl.val()
+    let minCal = minCalEL.val()
+    let maxProt = maxProtEl.val()
+    let minProt = minProtEl.val()
+    let maxCarbs = maxCarbsEl.val()
+    let minCarbs = minCarbsEl.val()
+    let maxFat = maxFatEl.val()
+    let minFat = minFatEl.val()
+    console.log(maxCal)
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
 
     let cardDivEl = document.createElement("div")
@@ -37,7 +46,7 @@ function getRecipeInfo();
                     cardTitle.setAttribute("class", "card-content");
                     cardTitle.textContent = recipeName;
                     recipeCard.append(cardTitle);
-                    recipeListEl.append(recipeCard);
+                    cardDivEl.append(recipeCard);
                 }
                 })
         } else {
@@ -55,27 +64,9 @@ function getRecipeInfo();
     recipeListEl.append(cardDivEl)
 }
 
-// $(".recipe-cards").sortable({
-//     connectWith: $(".calendar"),
-//     scroll: false,
-//     tolerance: "pointer",
-//     helper: "clone",
-//     activate: function(event) {
-//         $(this).addClass("dropover");
-//         $(".bottom-trash").addClass("bottom-trash-drag");
-//     },
-//     deactivate: function(event) {
-//         $(this).removeClass("dropover");
-//         $(".bottom-trash").removeClass("bottom-trash-drag");
-//     },
-//     over: function(event) {
-//         $(event.target).addClass("dropover-active");
-//     },
-//     out: function(event) {
-//         $(event.target).removeClass("dropover-active");
-//     }
-// })
-getRecipeInfo();
+$("#gen-btn").on("click", function() {
+    getRecipeInfo();
+})
 
 $(".recipe-cards").sortable({
     connectWith: $(".calendar"),
@@ -84,8 +75,11 @@ $(".recipe-cards").sortable({
     helper: "clone",
 });
 
-$(".calendar").sortable({
-    connectWith: $(".recipe-cards")
+$(".dropZone").droppable({
+    connectWith: $(".recipe-cards"),
+    drop: function() {
+        this.textContent = "drop";
+    }
 })
 
 $("#prev-btn").on("click", function(){
