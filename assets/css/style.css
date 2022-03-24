@@ -100,7 +100,6 @@ header{
     border-top: 3px solid black
 }
 
-
 #lunchSun{
     border-bottom: 3px solid black;
 }
@@ -124,12 +123,16 @@ header{
 
 h3{
     color: red;
-    font-size: 10px;
+   
 }
 
-.card-content {
-    font-size: 20px;
-    padding: 5px;
-    text-align: center;
+.form-div{
+    padding: 50px 0px 150px 75px;
 }
+
+.generate-div{
+    padding: 50px 0px 150px 75px;
+}
+
+
 
