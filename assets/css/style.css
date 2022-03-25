@@ -34,6 +34,9 @@ header{
 
 
   }
+.recipe-card {
+    z-index: 99;
+}
 
 /* .generate-recipe{
      
