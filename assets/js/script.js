@@ -10,51 +10,56 @@ let maxFatEl = $("#maxFat");
 let recipeListEl = document.querySelector(".recipes")
 let offset = 0;
 
-let maxCal = 10000
-let minCal = 0
-let maxProt = 1000
-let minProt = 0
-let maxCarbs = 1000
-let minCarbs = 0
-let maxFat = 1000
-let minFat = 0
+
+
+console.log($("#maxCal").val())
 
 
 function getRecipeInfo() {
-    if(maxCal){
     let maxCal = maxCalEl.val()
+    if(!maxCal){
+        maxCal = 100000
     }
-    if(minCal){
-    let minCal = minCalEL.val() 
+    let minCal = minCalEL.val()
+    if(!minCal){
+        minCal = 0
     }
-    if(maxProt){
     let maxProt = maxProtEl.val()
+    if(!maxProt){
+        maxProt = 10000
     }
-    if(minProt){
     let minProt = minProtEl.val()
+    if(!minProt){
+        minProt = 0
     }
-    if(maxCarbs){
     let maxCarbs = maxCarbsEl.val()
+    if(!maxCarbs){
+        maxCarbs = 10000
     }
-    if(minCarbs){
     let minCarbs = minCarbsEl.val()
+    if(!minCarbs){
+        minCarbs = 0
     }
-    if(maxFat){
     let maxFat = maxFatEl.val()
+    if(!maxFat){
+        maxFat = 10000
     }
-    if(minFat){
     let minFat = minFatEl.val()
+    if(!minFat){
+        minFat = 0
     }
     console.log(maxCal)
+    console.log(maxFat)
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
 
     let cardDivEl = document.createElement("div")
     cardDivEl.setAttribute("class", "recipe-cards")
 
-  
+    
+
     fetch(apiUrl)
         .then(function(response) {
-
+        if(response.ok) {
             response.json().then(function(data){
                 console.log(data)
                 for(let i = 0; i < data.results.length; i++) {
@@ -69,7 +74,18 @@ function getRecipeInfo() {
                     cardDivEl.append(recipeCard);
                 }
                 })
-            }) 
+        } else {
+            for(let i = 0; i < 10; i++) {
+                let recipeCard = document.createElement("div");
+                recipeCard.setAttribute("class", "card recipe-card");
+                let recipeName = "Placeholder " + i
+                // console.log(recipeName)
+                let cardTitle = document.createElement("h2");
+                cardTitle.setAttribute("class", "card-content");
+                cardTitle.textContent = recipeName;
+                recipeCard.append(cardTitle);
+                cardDivEl.append(recipeCard);
+        }}}) 
     recipeListEl.append(cardDivEl)
 }
 
