@@ -10,31 +10,51 @@ let maxFatEl = $("#maxFat");
 let recipeListEl = document.querySelector(".recipes")
 let offset = 0;
 
-
-
-
+let maxCal = 10000
+let minCal = 0
+let maxProt = 1000
+let minProt = 0
+let maxCarbs = 1000
+let minCarbs = 0
+let maxFat = 1000
+let minFat = 0
 
 
 function getRecipeInfo() {
+    if(maxCal){
     let maxCal = maxCalEl.val()
-    let minCal = minCalEL.val()
+    }
+    if(minCal){
+    let minCal = minCalEL.val() 
+    }
+    if(maxProt){
     let maxProt = maxProtEl.val()
+    }
+    if(minProt){
     let minProt = minProtEl.val()
+    }
+    if(maxCarbs){
     let maxCarbs = maxCarbsEl.val()
+    }
+    if(minCarbs){
     let minCarbs = minCarbsEl.val()
+    }
+    if(maxFat){
     let maxFat = maxFatEl.val()
+    }
+    if(minFat){
     let minFat = minFatEl.val()
+    }
     console.log(maxCal)
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
 
     let cardDivEl = document.createElement("div")
     cardDivEl.setAttribute("class", "recipe-cards")
 
-    
-
+  
     fetch(apiUrl)
         .then(function(response) {
-        if(response.ok) {
+
             response.json().then(function(data){
                 console.log(data)
                 for(let i = 0; i < data.results.length; i++) {
@@ -49,18 +69,7 @@ function getRecipeInfo() {
                     cardDivEl.append(recipeCard);
                 }
                 })
-        } else {
-            for(let i = 0; i < 10; i++) {
-                let recipeCard = document.createElement("div");
-                recipeCard.setAttribute("class", "card recipe-card");
-                let recipeName = "Placeholder " + i
-                // console.log(recipeName)
-                let cardTitle = document.createElement("h2");
-                cardTitle.setAttribute("class", "card-content");
-                cardTitle.textContent = recipeName;
-                recipeCard.append(cardTitle);
-                cardDivEl.append(recipeCard);
-        }}}) 
+            }) 
     recipeListEl.append(cardDivEl)
 }
 
