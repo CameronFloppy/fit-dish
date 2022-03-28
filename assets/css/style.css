@@ -2,7 +2,11 @@ header{
     background-color: red;
 }
 
-
+.columns {
+    font-family: verdana;
+    font-size: 120%;
+    
+}
 #macro-numbers{
     display: flex;
     flex-direction: column;
@@ -71,6 +75,8 @@ header{
     -ms-transform: translate(200px, 1px);
     transform: translate(10px, 1px);
 } */
+
+
 
 .container{
     size: 100px;
