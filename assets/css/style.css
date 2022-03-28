@@ -134,5 +134,7 @@ h3{
     padding: 50px 0px 150px 75px;
 }
 
-
+#dialog{
+    display: none;
+}
 

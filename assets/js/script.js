@@ -7,12 +7,17 @@ let minCarbsEl = $("#minCarb");
 let minFatEl = $("#minFat");
 let maxFatEl = $("#maxFat");
 
+
 let recipeListEl = document.querySelector(".recipes")
 let offset = 0;
 
 
 
-console.log($("#maxCal").val())
+function error404 (){
+    $( "#dialog" ).dialog({
+        autoOpen: true 
+    });
+}
 
 
 function getRecipeInfo() {
@@ -20,36 +25,75 @@ function getRecipeInfo() {
     if(!maxCal){
         maxCal = 100000
     }
+    else if(isNaN(maxCal)){
+        console.log(maxCal)
+        error404();  
+        return;
+    }
+
     let minCal = minCalEL.val()
     if(!minCal){
         minCal = 0
     }
+    else if(isNaN(minCal)){
+        error404();  
+        return;
+    }
+
     let maxProt = maxProtEl.val()
     if(!maxProt){
         maxProt = 10000
     }
+    else if(isNaN(minCal)){
+        error404();  
+        return;
+    }
+
     let minProt = minProtEl.val()
     if(!minProt){
         minProt = 0
     }
+    else if(isNaN(minProt)){
+        error404();  
+        return;
+    }
+
     let maxCarbs = maxCarbsEl.val()
     if(!maxCarbs){
         maxCarbs = 10000
     }
+    else if(isNaN(maxCarbs)){
+        error404();  
+        return;
+    }
+
     let minCarbs = minCarbsEl.val()
     if(!minCarbs){
         minCarbs = 0
     }
+    else if(isNaN(minCarbs)){
+        error404();  
+        return;
+    }
+
     let maxFat = maxFatEl.val()
     if(!maxFat){
         maxFat = 10000
     }
+    else if(isNaN(maxFat)){
+        error404();  
+        return;
+    }
+
     let minFat = minFatEl.val()
     if(!minFat){
         minFat = 0
     }
-    console.log(maxCal)
-    console.log(maxFat)
+    else if(isNaN(minFat)){
+        error404();  
+        return;
+    }
+    
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
 
     let cardDivEl = document.createElement("div")
