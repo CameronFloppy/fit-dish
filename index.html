@@ -7,131 +7,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
+   
+        <div class="vl"></div>
 </head>
 
+<body>
 
 
-    <header>
-        <h1>FitDish</h1>
+
+
+    <header class="hero is-danger">
+        <div class="hero-body">
+            <h1>FitDish</h1>
+        </div>
     </header>
-  
-    <div class="form">
-        <h3>Macros</h3>
-
-    <form>
-        <label for="min">Calorie Range</label>
-        <input type="text" placeholder="Min" name="name" id="name" class="form-input">
-        <input type="text" placeholder="Max" name="name" id="name" class="form-input">
-
-        <label for=""
-    </form>
 
 
-
-    </div>
-
+    
+    
     <section class="columns">
-        <div class="column">
 
+        <div class="form-div column">
+            <h3>Macros</h3>
+        <form>
+            <label for="min">Calorie Range</label>
+            <input type="text" placeholder="Min" name="name" id="minCal" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxCal" class="form-input">
+            </br>
+            <label for="min">Protein Range</label>
+            <input type="text" placeholder="Min" name="name" id="minProt" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxProt" class="form-input">
+            </br>
+            <label for="min">Carbohydrates Range</label>
+            <input type="text" placeholder="Min" name="name" id="minCarb" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxCarb" class="form-input">
+            </br>
+            <label for="min">Fat Range</label>
+            <input type="text" placeholder="Min" name="name" id="minFat" class="form-input">
+            <input type="text" placeholder="Max" name="name" id="maxFat" class="form-input">
+            </br>
+            <button type="submit" class="button" form="macro-numbers" id="gen-btn">
+                Generate
+            </button>
+        </form>
+        
         </div>
 
-        <div class="column">
-
+        <div class="generate-div recipes column">
+            <div class="generate-recipe">
+                <h3>Recipe Generator</h3>
+            </div>
+            <div id="prev-btn">
+                <button class="button">Previous</button>
+            </div>
+            <div id="next-btn">
+                <button class="button">Next</button>
+            </div>
         </div>
+
     </section>
 
-    <section class="recipe-list">
-        <div class="recipes">
-            
-        </div>
-
-        <div class="column">
-            <div class="columns" id="prev-btn">
-                <button>Previous</button>
-            </div>
-            <div class="columns" id="next-btn">
-                <button>Next</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
+  
+       
+    <section class="container section calendar">
+        <div class="columns title-row">
+            <div class="column is-2"></div>
+            <h3 class="column top-title">Breakfast</h3>
+            <h3 class="column top-title">Lunch</h3>
+            <h3 class="column top-title">Dinner</h3>
+          </div>
         <div class="columns" id="monday">
-            <div class="column name" id="dayNameMon">
+            <div class="column name is-2" id="dayNameMon">
                 Mon
             </div>
-            <div class="column" id="brekfastMon">
+            <div class="column breakfast dropZone" id="brekfastMon">
             </div>
-            <div class="column" id="lunchMon">
+            <div class="column lunch dropZone" id="lunchMon">
             </div>
-            <div class="column" id="dinnerMon">
+            <div class="column dinner dropZone" id="dinnerMon">
             </div>
         </div>
         <div class="columns" id="tuesday">
-            <div class="column name" id="dayNameTue">
+            <div class="column name is-2" id="dayNameTue">
                 Tue
             </div>
-            <div class="column" id="brekfastTue">
+            <div class="column breakfast dropZone" id="brekfastTue">
             </div>
-            <div class="column" id="lunchTue">
+            <div class="column lunch dropZone" id="lunchTue">
             </div>
-            <div class="column" id="dinnerTue">
+            <div class="column dinner dropZone" id="dinnerTue">
             </div>
         </div>
         <div class="columns" id="wednesday">
-            <div class="column name" id="dayNameWed">
+            <div class="column name is-2" id="dayNameWed">
                 Wed
             </div>
-            <div class="column" id="breakfastWed">
+            <div class="column breakfast dropZone" id="breakfastWed">
             </div>
-            <div class="column" id="lunchWed">
+            <div class="column lunch dropZone" id="lunchWed">
             </div>
-            <div class="column" id="dinnerWed">
+            <div class="column dinner dropZone" id="dinnerWed">
             </div>
         </div>
         <div class="columns" id="thursday">
-            <div class="column name" id="dayNameThu">
+            <div class="column name is-2" id="dayNameThu">
                 Thu
             </div>
-            <div class="column" id="breakfastThu">
+            <div class="column breakfast dropZone" id="breakfastThu">
             </div>
-            <div class="column" id="lunchThu">
+            <div class="column lunch dropZone" id="lunchThu">
             </div>
-            <div class="column" id="dinnerThu">
+            <div class="column dinner dropZone" id="dinnerThu">
             </div>
         </div>
         <div class="columns" id="friday">
-            <div class="column name" id="dayNameFri">
+            <div class="column name is-2" id="dayNameFri">
                 Fri
             </div>
-            <div class="column" id="breakfastFri">
+            <div class="column breakfast dropZone" id="breakfastFri">
             </div>
-            <div class="column" id="lunchFri">
+            <div class="column lunch dropZone" id="lunchFri">
             </div>
-            <div class="column" id="dinnerFri">
+            <div class="column dinner dropZone" id="dinnerFri">
             </div>
         </div>
         <div class="columns" id="saturday">
-            <div class="column name" id="dayNameSat">
+            <div class="column name is-2" id="dayNameSat">
                 Sat
             </div>
-            <div class="column" id="breakfastSat">
+            <div class="column breakfast dropZone" id="breakfastSat">
             </div>
-            <div class="column" id="lunchSat">
+            <div class="column lunch dropZone" id="lunchSat">
             </div>
-            <div class="column" id="dinnerSat">
+            <div class="column dinner dropZone" id="dinnerSat">
             </div>
         </div>
         <div class="columns" id="sunday">
-            <div class="column name" id="dayNameSun">
+            <div class="column name is-2" id="dayNameSun">
                 Sun
             </div>
-            <div class="column" id="breakfastSun">
+            <div class="column breakfast dropZone" id="breakfastSun">
             </div>
-            <div class="column" id="lunchSun">
+            <div class="column lunch dropZone" id="lunchSun">
             </div>
-            <div class="column" id="dinnerSun">
+            <div class="column dinner dropZone" id="dinnerSun">
             </div>
         </div>
 
@@ -142,8 +163,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="./assets/js/script.js"></script>
-
-
+    <div id="dialog" title="Basic dialog">
+        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+    </div>
 </body>
 
 
