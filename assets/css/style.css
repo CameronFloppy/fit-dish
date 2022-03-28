@@ -19,12 +19,15 @@ header{
     padding: 15px;
     height: calc(100% - 50px);
     background: rgb(196, 196, 196);
-    border-radius: 12px;
-    border: 2px solid var(--grey);
+    border-radius: 8px;
+    border: 20px solid var(--grey);
     display: grid;
     grid-auto-flow: calc();
-  }
-  .button {
+    margin-block-end: 10px ;
+    
+
+}
+.button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -35,44 +38,8 @@ header{
     font-size: 20px;
 
 
-  }
+}
 
-/* .generate-recipe{
-     
-   
-        color: rgb(255, 255, 255); font-size: 20px; 
-        line-height: 20px; 
-        padding: 20px; 
-        border-radius: 36px; 
-        font-family: Georgia, serif; 
-        font-weight: normal; 
-        text-decoration: none; 
-        font-style: normal; 
-        font-variant: normal;
-        text-transform: none; 
-        background-image: linear-gradient(to right, rgb(23, 164, 19) 0%, rgb(11, 117, 31) 100%); 
-        box-shadow: rgba(136, 218, 255, 0.68) 0px 2px 15px 0px; 
-        border: 2px solid rgb(28, 110, 164);
-        display: inline-block;
-        
-        background: #17A413; 
-        
-        background: #0B751F; 
-        
-    -moz-transform: translate(200px, 1px);
-    -webkit-transform: translate(200px, 1px);
-    -o-transform: translate(200px, 1px);
-    -ms-transform: translate(200px, 1px);
-    transform: translate(400rpx, 1px);
-} */
-
-/* .macros {
-    -moz-transform: translate(200px, 1px);
-    -webkit-transform: translate(200px, 1px);
-    -o-transform: translate(200px, 1px);
-    -ms-transform: translate(200px, 1px);
-    transform: translate(10px, 1px);
-} */
 
 .container{
     size: 100px;
@@ -125,6 +92,8 @@ header{
 
 h3{
     color: red;
+    margin-bottom: 20px;
+    font-weight: 500;
    
 }
 
@@ -134,9 +103,18 @@ h3{
 
 .generate-div{
     padding: 50px 0px 150px 75px;
+    display: column; column-gap: 10px;
+    
+    
+    
+
+
+    
 }
 
 #dialog{
     display: none;
 }
+
+
 
