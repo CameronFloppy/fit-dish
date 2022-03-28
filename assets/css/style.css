@@ -1,7 +1,13 @@
 header{
     background-color: red;
+   
 }
 
+h1{
+    font-weight: bold;
+    color: black;
+    font-size: 250%;
+}
 
 #macro-numbers{
     display: flex;
@@ -28,7 +34,7 @@ header{
 
 }
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: maroon; /* Maroon */
     border: none;
     color: white;
     padding: 5px 25px;
@@ -103,13 +109,11 @@ h3{
 
 .generate-div{
     padding: 50px 0px 150px 75px;
-    display: column; column-gap: 10px;
     
-    
-    
+}
 
-
-    
+.button{
+    margin-block-end: 10px;
 }
 
 #dialog{
