@@ -25,7 +25,7 @@ h1{
     padding: 15px;
     height: calc(100% - 50px);
     background: rgb(196, 196, 196);
-    border-radius: 8px;
+    border-radius: 10px;
     border: 20px solid var(--grey);
     display: grid;
     grid-auto-flow: calc();
@@ -43,6 +43,22 @@ h1{
     display: inline-block;
     font-size: 20px;
 
+
+}
+
+.cards.content{
+
+}
+
+.card.recipe-card{
+    background-color: rgb(255, 115, 0);
+    font-size: 95%;
+    margin-right: 75px;
+    margin-block-end: 4px;
+    border-radius: 8px;
+    float: left;
+    font-style: oblique;
+    
 
 }
 
