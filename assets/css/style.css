@@ -87,21 +87,24 @@ header h1{
   hsl(55deg 100% 50%) 100%
 );
     font-size: 95%;
-    margin-right: 15px;
     margin-left: 15px;
     margin-block-end: 4px;
     border-radius: 8px;
     /* float: left; */
     font-style: oblique;
     z-index: 99;
-    height: 90px;
+    height: 80px;
     width: 200px;
 }
 
 .ui-draggable {
-    margin: 0;
+    margin-left: 0;
 }
 
+.dropZone {
+    padding: 0;
+    padding-top: 3px;
+}
 
 .container{
     size: 100px;
