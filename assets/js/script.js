@@ -141,7 +141,7 @@ function getRecipeInfo() {
                 for(let i = 0; i < 10; i++) {
                     
                     recipeCard = document.createElement("div")
-                    recipeCard.setAttribute("class", "card recipe-card");
+                    recipeCard.setAttribute("class", "card recipe-card column is-3");
                     
                     recipeTitle = document.createElement("h2")
                     recipeTitle.textContent = ("Placeholder" + i)
