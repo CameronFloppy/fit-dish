@@ -85,11 +85,7 @@ let counter = 0
 function searchAPI (){
     // update api pull with search parameters
     // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
-<<<<<<< HEAD
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&addRecipeInformation=true&number=10&apiKey=31eed029c28f4e97949e8d874d61e92d"
-=======
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&addRecipeInformation=true&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
->>>>>>> develop
    
     fetch(apiUrl)
         .then(function(response){
