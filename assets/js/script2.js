@@ -85,7 +85,7 @@ let counter = 0
 function searchAPI (){
     // update api pull with search parameters
     // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&number=10&apiKey=48f6c56e22f44125a4d7ce3ef55b1b38"
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&addRecipeInformation=true&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
    
     fetch(apiUrl)
         .then(function(response){
@@ -93,7 +93,7 @@ function searchAPI (){
                 response.json()
                 .then(function(data){
                     
-
+                    console.log(data)
                     for(i=0; i<10; i++){
                         let recipeData = {
                             "title" : data.results[i].title,
@@ -113,20 +113,22 @@ function searchAPI (){
                         recipeCardContainer.append(recipeCard)
                         
                         recipeTitle = document.createElement("a")
+                        recipeTitle.setAttribute("href", recipeData.link)
+                        recipeTitle.setAttribute("target", "_blank")
                                                
-                        recipeTitle.textContent = recipesGroup[i].title
+                        recipeTitle.textContent = recipeData.title
                         recipeTitle.setAttribute("id", "card-header")
                         recipeCard.append(recipeTitle)
 
-                        recipePhotoDiv = document.createElement("div")
-                        recipeCard.append(recipePhotoDiv)
-                        recipePhotoDiv.setAttribute("class", "card-image")
-                        recipePhoto = document.createElement("figure") 
-                        recipePhoto.setAttribute("class", "image")
-                        recipePhotoDiv.append(recipePhoto)
-                        recipeImageFile = document.createElement("img")
-                        recipeImageFile.setAttribute("src", data.results[i].image)
-                        recipeCard.append(recipeImageFile)
+                        // recipePhotoDiv = document.createElement("div")
+                        // recipeCard.append(recipePhotoDiv)
+                        // recipePhotoDiv.setAttribute("class", "card-image")
+                        // recipePhoto = document.createElement("figure") 
+                        // recipePhoto.setAttribute("class", "image")
+                        // recipePhotoDiv.append(recipePhoto)
+                        // recipeImageFile = document.createElement("img")
+                        // recipeImageFile.setAttribute("src", data.results[i].image)
+                        // recipeCard.append(recipeImageFile)
                         counter ++
 
                         // trying to make another api call to the link for the recipe
@@ -137,7 +139,13 @@ function searchAPI (){
                         //     })
                         //     recipeTitle.setAttribute("href", data.sourrceUrl) 
                     }
-                      
+                    $(".recipe-card").draggable({
+                        snap: ".dropZone",
+                        snapMode: "top",
+                        revert: "true",
+                        revertDuration: 0,
+                        helper: "clone"
+                    })
                 });
             }
             else{
@@ -179,3 +187,19 @@ $("#prev-btn").on("click", function() {
     searchAPI(offset);
 })
 
+
+$(".dropZone").droppable({
+    accept: ".recipe-card",
+    drop: function( event, ui ) {
+    draggable = ui.draggable
+    draggable.clone().appendTo(recipeCardContainer)
+    $(this).append(draggable)
+    $(".recipe-card").draggable({
+        snap: ".dropZone",
+        snapMode: "top",
+        revert: "true",
+        revertDuration: 0,
+        helper: "clone"
+    })
+    } 
+});

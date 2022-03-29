@@ -96,8 +96,8 @@ function getRecipeInfo() {
     }
     
     // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c";
-    
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&addRecipeInformation=true&offset=" + offset + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c";
+
 
     let cardDivEl = document.createElement("div")
     cardDivEl.setAttribute("class", "recipe-cards")
@@ -107,9 +107,9 @@ function getRecipeInfo() {
     fetch(apiUrl)
         .then(function(response) {
         if(response.ok) {
-            
-            response.json().then(function(data){
-                
+            response.json()
+            .then(function(data){
+                console.log(data)
                 
               if(generationCounter===0) {                 
                 for(let i = 0; i < 10; i++) {
