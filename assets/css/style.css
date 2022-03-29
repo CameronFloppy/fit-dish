@@ -43,11 +43,11 @@ header h1{
 
 }
 .input-label{
-    font-size: 2vh
+    font-size: 15px
 }
 
 .button {
-    background-color: maroon; /* Maroon */
+    background-color: black; /* Maroon */
     border: none;
     color: white;
     padding: 5px 25px;
@@ -64,11 +64,31 @@ header h1{
     margin-right:15px;
 }
 
+.card a{
+    color: black
+}
+
+.card a:hover{
+    color:grey
+}
 
 .card.recipe-card{
-    background-color: rgb(255, 115, 0);
+    /* background-color: rgb(255, 115, 0); */
+    background-image: linear-gradient(
+  45deg,
+  hsl(240deg 100% 20%) 0%,
+  hsl(293deg 100% 21%) 0%,
+  hsl(319deg 100% 30%) 1%,
+  hsl(332deg 100% 39%) 3%,
+  hsl(346deg 83% 51%) 7%,
+  hsl(10deg 100% 60%) 15%,
+  hsl(30deg 100% 55%) 29%,
+  hsl(44deg 100% 50%) 68%,
+  hsl(55deg 100% 50%) 100%
+);
     font-size: 95%;
-    margin-right: 75px;
+    /* margin-right: 75px; */
+    margin-left: 15px;
     margin-block-end: 4px;
     border-radius: 8px;
     /* float: left; */
