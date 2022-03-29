@@ -95,7 +95,9 @@ function getRecipeInfo() {
         return;
     }
     
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
+    // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c";
+
 
     let cardDivEl = document.createElement("div")
     cardDivEl.setAttribute("class", "recipe-cards")
@@ -125,6 +127,8 @@ function getRecipeInfo() {
                 }   
              }
             else if(generationCounter>0){
+
+                   location.reload() 
                 
                     $('#recipe-container').children('div').each(function () {
                         $(this).text("bleh")
@@ -158,8 +162,6 @@ function getRecipeInfo() {
                 
             }}) 
     
-
-        
 }
 
 $("#gen-btn").on("click", function() {
@@ -196,8 +198,8 @@ $("#next-btn").on("click", function() {
     getRecipeInfo(offset);
 })
 
-function clearRecipes() {
-    let recipeList = document.querySelector(".recipe-cards");
-    recipeList.remove();
-}
+// function clearRecipes() {
+//     let recipeList = document.querySelector(".recipe-cards");
+//     recipeList.remove();
+// }
 
