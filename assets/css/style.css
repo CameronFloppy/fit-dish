@@ -58,8 +58,9 @@ h1{
     border-radius: 8px;
     float: left;
     font-style: oblique;
-    
-
+    z-index: 99;
+    height: 150px;
+    width: 250px;
 }
 
 
@@ -105,7 +106,8 @@ h1{
 }
 
 #sunday, #saturday, #friday, #thursday, #wednesday, #tuesday, #monday{
-    height: 200px
+    height: 200px;
+    z-index: 1;
 }
 
 .top-title{

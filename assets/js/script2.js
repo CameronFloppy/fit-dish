@@ -85,7 +85,7 @@ let counter = 0
 function searchAPI (){
     // update api pull with search parameters
     // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&number=10&apiKey=48f6c56e22f44125a4d7ce3ef55b1b38"
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&addRecipeInformation=true&number=10&apiKey=48f6c56e22f44125a4d7ce3ef55b1b38"
    
     fetch(apiUrl)
         .then(function(response){
@@ -93,7 +93,7 @@ function searchAPI (){
                 response.json()
                 .then(function(data){
                     
-
+                    console.log(data)
                     for(i=0; i<10; i++){
                         let recipeData = {
                             "title" : data.results[i].title,
@@ -137,7 +137,13 @@ function searchAPI (){
                         //     })
                         //     recipeTitle.setAttribute("href", data.sourrceUrl) 
                     }
-                      
+                    $(".recipe-card").draggable({
+                        snap: ".dropZone",
+                        snapMode: "inner",
+                        revert: "true",
+                        revertDuration: 0,
+                        helper: "clone"
+                    })
                 });
             }
             else{
@@ -172,3 +178,11 @@ $("#next-btn").on("click", function() {
     searchAPI(offset);
 })
 
+$(".dropZone").droppable({
+    drop: function (event, ui) {
+        let droppable = $(this);
+        let draggable = ui.draggable;
+        let clone = draggable.clone;
+        $(this).append(clone);
+    }
+})
