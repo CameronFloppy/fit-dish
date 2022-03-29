@@ -8,6 +8,7 @@ let minCarbsEl = $("#minCarb");
 let maxFatEl = $("#maxFat");
 let minFatEl = $("#minFat");
 let recipeCardContainer = $("#recipe-container")
+let offset = 0
 
 // Receive parameters from input and add them to an object
 let recipesGroup = []
@@ -79,17 +80,20 @@ function getSearchInfo (){
 // Call API with paramters in the link
 
 //\\ let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
-
+let counter = 0
 
 function searchAPI (){
     // update api pull with search parameters
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
-    
+    // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&number=10&apiKey=0ec67d70cf6b40618ea451f97c0ee3d9"
+
     fetch(apiUrl)
         .then(function(response){
             if(response.ok){
                 response.json()
                 .then(function(data){
+                    
+
                     for(i=0; i<10; i++){
                         let recipeData = {
                             "title" : data.results[i].title,
@@ -103,6 +107,7 @@ function searchAPI (){
                         
                         recipeTitle = document.createElement("h2")
                         recipeTitle.textContent = recipesGroup[i].title
+                        recipeTitle.setAttribute("id", "card-header")
                         recipeCard.append(recipeTitle)
 
                         recipePhotoDiv = document.createElement("div")
@@ -114,6 +119,7 @@ function searchAPI (){
                         recipeImageFile = document.createElement("img")
                         recipeImageFile.setAttribute("src", data.results[i].image)
                         recipePhotoDiv.append(recipeImageFile)
+                        counter ++
                     }
                     
                     
@@ -135,6 +141,18 @@ function searchAPI (){
 
 // call get recipe info when submit is clicked
 $("#gen-btn").on("click", function() {
+    offset = 0
     getSearchInfo();
+   
+        $("#recipe-container").empty()
+    
     searchAPI(searchData);
+    
+})
+
+$("#next-btn").on("click", function() {
+    offset += 10
+    console.log(offset)
+    $("#recipe-container").empty()
+    searchAPI(offset);
 })
