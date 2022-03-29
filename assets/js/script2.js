@@ -85,8 +85,8 @@ let counter = 0
 function searchAPI (){
     // update api pull with search parameters
     // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&number=10&apiKey=0ec67d70cf6b40618ea451f97c0ee3d9"
-
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&offset=" + offset + "&number=10&apiKey=48f6c56e22f44125a4d7ce3ef55b1b38"
+   
     fetch(apiUrl)
         .then(function(response){
             if(response.ok){
@@ -97,15 +97,23 @@ function searchAPI (){
                     for(i=0; i<10; i++){
                         let recipeData = {
                             "title" : data.results[i].title,
-                            "image" : data.results[i].image
+                            "image" : data.results[i].image,
+                            "link" : data.results[i].sourceUrl,
+                            "id" : data.results[i].id
                         }
+                        
+                            
+                              
+                            
+                                
                         recipesGroup.push(recipeData)
 
                         recipeCard = document.createElement("div")
                         recipeCard.setAttribute("class", "card recipe-card");
                         recipeCardContainer.append(recipeCard)
                         
-                        recipeTitle = document.createElement("h2")
+                        recipeTitle = document.createElement("a")
+                                               
                         recipeTitle.textContent = recipesGroup[i].title
                         recipeTitle.setAttribute("id", "card-header")
                         recipeCard.append(recipeTitle)
@@ -120,9 +128,16 @@ function searchAPI (){
                         recipeImageFile.setAttribute("src", data.results[i].image)
                         recipePhotoDiv.append(recipeImageFile)
                         counter ++
+
+                        // trying to make another api call to the link for the recipe
+                        // fetch('https://api.spoonacular.com/recipes/' + recipeData.id + '/information?&apiKey=48f6c56e22f44125a4d7ce3ef55b1b38')
+                        //     .then(response => response.json())
+                        //     .then(function(data2){
+                        //         console.log(data2)
+                        //     })
+                        //     recipeTitle.setAttribute("href", data.sourrceUrl) 
                     }
-                    
-                    
+                      
                 });
             }
             else{
@@ -144,7 +159,7 @@ $("#gen-btn").on("click", function() {
     offset = 0
     getSearchInfo();
    
-        $("#recipe-container").empty()
+    $("#recipe-container").empty()
     
     searchAPI(searchData);
     
@@ -152,7 +167,8 @@ $("#gen-btn").on("click", function() {
 
 $("#next-btn").on("click", function() {
     offset += 10
-    console.log(offset)
+    
     $("#recipe-container").empty()
     searchAPI(offset);
 })
+
