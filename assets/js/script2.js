@@ -126,7 +126,7 @@ function searchAPI (){
                         recipePhotoDiv.append(recipePhoto)
                         recipeImageFile = document.createElement("img")
                         recipeImageFile.setAttribute("src", data.results[i].image)
-                        recipePhotoDiv.append(recipeImageFile)
+                        recipeCard.append(recipeImageFile)
                         counter ++
 
                         // trying to make another api call to the link for the recipe
@@ -167,6 +167,13 @@ $("#gen-btn").on("click", function() {
 
 $("#next-btn").on("click", function() {
     offset += 10
+    
+    $("#recipe-container").empty()
+    searchAPI(offset);
+})
+
+$("#prev-btn").on("click", function() {
+    offset -= 10
     
     $("#recipe-container").empty()
     searchAPI(offset);
