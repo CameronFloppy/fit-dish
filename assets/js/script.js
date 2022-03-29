@@ -6,7 +6,8 @@ let maxCarbsEl = $("#maxCarb");
 let minCarbsEl = $("#minCarb");
 let minFatEl = $("#minFat");
 let maxFatEl = $("#maxFat");
-
+let recipeCardContainer = $("#recipe-container")
+var generationCounter = 0
 
 let recipeListEl = document.querySelector(".recipes")
 let offset = 0;
@@ -21,12 +22,12 @@ function error404 (){
 
 
 function getRecipeInfo() {
+
     let maxCal = maxCalEl.val()
     if(!maxCal){
         maxCal = 100000
     }
     else if(isNaN(maxCal)){
-        console.log(maxCal)
         error404();  
         return;
     }
@@ -94,7 +95,9 @@ function getRecipeInfo() {
         return;
     }
     
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
+    // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=12e90f7110fa407caf3c0a919ae2be54";
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + maxCal + "&minCalories=" + minCal + "&maxProtein=" + maxProt + "&minProtein=" + minProt + "&maxCarbs=" + maxCarbs + "&minCarbs=" + minCarbs + "&maxFat=" + maxFat + "&minFat=" + minFat + "&sort=popularity&offset=" + offset + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c";
+
 
     let cardDivEl = document.createElement("div")
     cardDivEl.setAttribute("class", "recipe-cards")
@@ -104,33 +107,61 @@ function getRecipeInfo() {
     fetch(apiUrl)
         .then(function(response) {
         if(response.ok) {
+            
             response.json().then(function(data){
-                console.log(data)
-                for(let i = 0; i < data.results.length; i++) {
-                    let recipeCard = document.createElement("div");
+                
+                
+              if(generationCounter===0) {                 
+                for(let i = 0; i < 10; i++) {
+                    
+                    recipeCard = document.createElement("div")
                     recipeCard.setAttribute("class", "card recipe-card");
-                    let recipeName = data.results[i].title
-                    console.log(recipeName)
-                    let cardTitle = document.createElement("h2");
-                    cardTitle.setAttribute("class", "card-content");
-                    cardTitle.textContent = recipeName;
-                    recipeCard.append(cardTitle);
-                    cardDivEl.append(recipeCard);
-                }
+                    
+                    recipeTitle = document.createElement("h2")
+                    recipeTitle.textContent = data.results[i].title
+                    recipeCard.appendChild(recipeTitle)
+                    
+                    recipeCardContainer.append(recipeCard)
+                    
+                    generationCounter++;
+                }   
+             }
+            else if(generationCounter>0){
+
+                   location.reload() 
+                
+                    $('#recipe-container').children('div').each(function () {
+                        $(this).text("bleh")
+                    });
+                 
+            }
                 })
-        } else {
-            for(let i = 0; i < 10; i++) {
-                let recipeCard = document.createElement("div");
-                recipeCard.setAttribute("class", "card recipe-card");
-                let recipeName = "Placeholder " + i
-                // console.log(recipeName)
-                let cardTitle = document.createElement("h2");
-                cardTitle.setAttribute("class", "card-content");
-                cardTitle.textContent = recipeName;
-                recipeCard.append(cardTitle);
-                cardDivEl.append(recipeCard);
-        }}}) 
-    recipeListEl.append(cardDivEl)
+        } else{
+            if(generationCounter===0) {                 
+                for(let i = 0; i < 10; i++) {
+                    
+                    recipeCard = document.createElement("div")
+                    recipeCard.setAttribute("class", "card recipe-card");
+                    
+                    recipeTitle = document.createElement("h2")
+                    recipeTitle.textContent = ("Placeholder" + i)
+                    recipeCard.appendChild(recipeTitle)
+                    
+                    recipeCardContainer.append(recipeCard)
+                    
+                    generationCounter++;
+                }   
+             }
+            else if(generationCounter>0){
+            
+                    $('#recipe-container').children('div').each(function () {
+                        $(this).text("hello")
+                    });
+                 
+            }
+                
+            }}) 
+    
 }
 
 $("#gen-btn").on("click", function() {
@@ -167,8 +198,8 @@ $("#next-btn").on("click", function() {
     getRecipeInfo(offset);
 })
 
-function clearRecipes() {
-    let recipeList = document.querySelector(".recipe-cards");
-    recipeList.remove();
-}
+// function clearRecipes() {
+//     let recipeList = document.querySelector(".recipe-cards");
+//     recipeList.remove();
+// }
 
