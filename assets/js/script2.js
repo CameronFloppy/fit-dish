@@ -23,6 +23,7 @@ let searchData = {
 }
 
 function getSearchInfo (){
+    // check to see if inputs have content, if not use default values
     if(maxCalEl.val()){
         searchData.maxCal = maxCalEl.val()
     }else{
@@ -81,6 +82,7 @@ function getSearchInfo (){
 
 
 function searchAPI (){
+    // update api pull with search parameters
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?maxCalories=" + searchData.maxCal + "&minCalories=" + searchData.minCal + "&maxProtein=" + searchData.maxProt + "&minProtein=" + searchData.minProt + "&maxCarbs=" + searchData.maxCarbs + "&minCarbs=" + searchData.minCarbs + "&maxFat=" + searchData.maxFat + "&minFat=" + searchData.minFat + "&number=10&apiKey=ca8918d717774bfab6f09f6113ce122c"
     
     fetch(apiUrl)
@@ -90,19 +92,28 @@ function searchAPI (){
                 .then(function(data){
                     for(i=0; i<10; i++){
                         let recipeData = {
-                            "title" : data.results[i].title
-
+                            "title" : data.results[i].title,
+                            "image" : data.results[i].image
                         }
                         recipesGroup.push(recipeData)
 
                         recipeCard = document.createElement("div")
                         recipeCard.setAttribute("class", "card recipe-card");
+                        recipeCardContainer.append(recipeCard)
                         
                         recipeTitle = document.createElement("h2")
                         recipeTitle.textContent = recipesGroup[i].title
-                        recipeCardContainer.append(recipeTitle)
+                        recipeCard.append(recipeTitle)
 
-                        
+                        recipePhotoDiv = document.createElement("div")
+                        recipeCard.append(recipePhotoDiv)
+                        recipePhotoDiv.setAttribute("class", "card-image")
+                        recipePhoto = document.createElement("figure") 
+                        recipePhoto.setAttribute("class", "image")
+                        recipePhotoDiv.append(recipePhoto)
+                        recipeImageFile = document.createElement("img")
+                        recipeImageFile.setAttribute("src", data.results[i].image)
+                        recipePhotoDiv.append(recipeImageFile)
                     }
                     
                     
@@ -116,13 +127,7 @@ function searchAPI (){
 
 
 // Iterate through search results and display them on the page
-function printCards (recipesGroup){
-    for(i=0; i<10; i++){
-        
 
-        
-    }
-}
 // get image and title data and create cards on the page
 
 
