@@ -141,7 +141,7 @@ function searchAPI (){
                     }
                     $(".recipe-card").draggable({
                         snap: ".dropZone",
-                        snapMode: "top",
+                        snapMode: "inner",
                         revert: "true",
                         revertDuration: 0,
                         helper: "clone"
@@ -152,6 +152,7 @@ function searchAPI (){
                 alert("help")
             }
         });
+        
 };
 
 
@@ -190,10 +191,6 @@ $("#prev-btn").on("click", function() {
 $(".dropZone").droppable({
     accept: ".recipe-card",
     drop: function( event, ui ) {
-    var droppable = $(this);
-    var draggable = ui.draggable;
-    var clone = draggable.clone();            
-    // Move draggable into droppable
-    $(this).append(clone);
-    } 
+    $(this).append(ui.draggable);
+    }
 });
