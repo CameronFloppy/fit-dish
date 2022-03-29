@@ -125,9 +125,9 @@ function getRecipeInfo() {
                 }   
              }
             else if(generationCounter>0){
-            
+                
                     $('#recipe-container').children('div').each(function () {
-                        $(this).text("hello")
+                        $(this).text("bleh")
                     });
                  
             }
