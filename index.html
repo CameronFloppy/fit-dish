@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>FitDish</title>
    
         <div class="vl"></div>
 </head>
@@ -22,47 +22,57 @@
         <div class="hero-body">
             <h1>FitDish</h1>
         </div>
+        <img id ="icon"src="./assets/images/restaurant.png">
     </header>
 
 
     
     
-    <section class="columns">
-
-        <div class="form-div column">
-            <h3>Macros</h3>
-        <form>
-            <label for="min">Calorie Range (g)</label>
+    <section class="form-section columns">
+            <div class="column">
+            <h3 id="macros-title">MACROS</h3>
+            </div>
+            <div class = "column">
+            <label class="input-label" for="min">Calorie Range</label>
             <input type="text" placeholder="Min" name="name" id="minCal" class="form-input">
             <input type="text" placeholder="Max" name="name" id="maxCal" class="form-input">
-            </br>
-            <label for="min">Protein Range (g)</label>
+            <!-- </br> -->
+            </div>
+            <div class="column">
+            <label class="input-label" for="min">Protein Range (g)</label>
             <input type="text" placeholder="Min" name="name" id="minProt" class="form-input">
             <input type="text" placeholder="Max" name="name" id="maxProt" class="form-input">
-            </br>
-            <label for="min">Carbohydrates Range (g)</label>
+            <!-- </br> -->
+            </div>
+            <div class="column">
+            <label class="input-label" for="min">Carbohydrates Range (g)</label>
             <input type="text" placeholder="Min" name="name" id="minCarb" class="form-input">
             <input type="text" placeholder="Max" name="name" id="maxCarb" class="form-input">
             </br>
-            <label for="min">Fat Range (g)</label>
+            </div>
+            <div class="column">
+            <label class="input-label" for="min">Fat Range (g)</label>
             <input type="text" placeholder="Min" name="name" id="minFat" class="form-input">
             <input type="text" placeholder="Max" name="name" id="maxFat" class="form-input">
             </br>
+            </div>
+            <div class="column">
             <button type="submit" class="button" form="macro-numbers" id="gen-btn">
                 Generate
             </button>
-        </form>
-        
-        </div>
-
-        <div class="generate-div recipes column">
-            <div class="generate-recipe">
-                <h3>Recipe Generator</h3>
             </div>
-            <div id="prev-btn">
+    </section>
+    <section>
+        <div class="generate-div recipes columns">
+            <div class="generate-recipe column is-12">
+                <h3 id="generate-title">Recipe Generator</h3>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column" id="prev-btn">
                 <button class="button">Previous</button>
             </div>
-            <div id="next-btn">
+            <div class="column" id="next-btn">
                 <button class="button">Next</button>
             </div>
             <div id="recipe-container">
@@ -72,8 +82,8 @@
     </section>
 
   
-       
-    <section class="container section calendar">
+    <div class="columns">
+    <section class="container section calendar columnn">
         <div class="columns title-row">
             <div class="column is-2"></div>
             <h3 class="column top-title">Breakfast</h3>
@@ -160,13 +170,14 @@
 
 
     </section>
-
+        
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="./assets/js/script2.js"></script>
     <div id="dialog" title="Basic dialog">
-        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+        <p>The request to the server has failed.</p>
     </div>
 </body>
 

@@ -126,7 +126,7 @@ function searchAPI (){
                         recipePhotoDiv.append(recipePhoto)
                         recipeImageFile = document.createElement("img")
                         recipeImageFile.setAttribute("src", data.results[i].image)
-                        recipePhotoDiv.append(recipeImageFile)
+                        recipeCard.append(recipeImageFile)
                         counter ++
 
                         // trying to make another api call to the link for the recipe
@@ -178,11 +178,10 @@ $("#next-btn").on("click", function() {
     searchAPI(offset);
 })
 
-$(".dropZone").droppable({
-    drop: function (event, ui) {
-        let droppable = $(this);
-        let draggable = ui.draggable;
-        let clone = draggable.clone;
-        $(this).append(clone);
-    }
+$("#prev-btn").on("click", function() {
+    offset -= 10
+    
+    $("#recipe-container").empty()
+    searchAPI(offset);
 })
+
